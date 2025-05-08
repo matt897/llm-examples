@@ -15,17 +15,12 @@
           ]
         }
       },
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [
         8501
     ],
-    // Use 'postCreateCommand' to run commands after the container is created.
-    // Install app dependencies and ensure user packages are in PATH
-    "postCreateCommand": "python3 -m pip install --user -r requirements.txt && export PATH=/home/vscode/.local/bin:$PATH && source ~/.bashrc",
-    // Use 'postAttachCommand' to run commands after a tool has attached to the container.
-    // Start the app.
+    "postCreateCommand": "apt-get update && apt-get install -y python3-pip && python3 -m pip install --user -r requirements.txt && export PATH=/home/vscode/.local/bin:$PATH && source ~/.bashrc",
     "postAttachCommand": {
-        "server": "streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
+        "server": "source ~/.bashrc && streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
     },
     "portsAttributes": {
         "8501": {
@@ -33,12 +28,7 @@
             "onAutoForward": "openPreview"
         }
     },
-    // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "vscode",
     "features": {
-        // Optional features for development - increase container boot time!
-        // "ghcr.io/devcontainers-contrib/features/coverage-py:2": {},
-        // "git": "latest",
-        // "github-cli": "latest"
     }
 }
