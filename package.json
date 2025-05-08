@@ -4,6 +4,6 @@
   "private": true,
   "description": "Streamlit LLM Examples App",
   "scripts": {
-    "start": "~/.local/bin/streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
+    "start": "python3 -m streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
   }
 }
