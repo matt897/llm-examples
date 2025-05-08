@@ -16,7 +16,7 @@
         }
     },
     "forwardPorts": [8501],
-    "postCreateCommand": "/bin/bash -c 'python3 -m ensurepip --upgrade && python3 -m pip install --no-cache-dir pip==23.3.1 setuptools==69.0.2 wheel==0.42.0 && python3 -m pip install --no-cache-dir streamlit==1.29.0 langchain>=0.0.217 openai>=1.2 duckduckgo-search anthropic>=0.3.0 trubrics>=1.4.3 streamlit-feedback langchain-community python-dotenv requests && echo \"export PATH=/home/vscode/.local/bin:$PATH\" >> ~/.bashrc && source ~/.bashrc'",
+    "postCreateCommand": "/bin/bash -c 'apt-get update && apt-get install -y python3-dev && python3 -m ensurepip --upgrade && python3 -m pip install --no-cache-dir pip==23.3.1 setuptools==69.0.2 wheel==0.42.0 && python3 -m pip install --no-cache-dir -r requirements.txt && echo \"export PATH=/home/vscode/.local/bin:$PATH\" >> ~/.bashrc && source ~/.bashrc'",
     "postAttachCommand": {
         "server": "/bin/bash -c 'source ~/.bashrc && streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false'"
     },
@@ -29,7 +29,8 @@
     "remoteUser": "vscode",
     "features": {
         "ghcr.io/devcontainers/features/python:1": {
-            "version": "3.11"
+            "version": "3.11",
+            "installTools": true
         }
     }
 }
