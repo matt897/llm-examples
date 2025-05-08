@@ -1,0 +1,9 @@
+{
+  "name": "streamlit-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Streamlit LLM Examples App",
+  "scripts": {
+    "start": "streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
+  }
+}
