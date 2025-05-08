@@ -18,9 +18,9 @@
     "forwardPorts": [
         8501
     ],
-    "postCreateCommand": "apt-get update && apt-get install -y python3-pip && python3 -m pip install --user -r requirements.txt && export PATH=/home/vscode/.local/bin:$PATH && source ~/.bashrc",
+    "postCreateCommand": "apt-get update && apt-get install -y python3-pip && python3 -m pip install --user -r requirements.txt && echo 'export PATH=/home/vscode/.local/bin:$PATH' >> ~/.bashrc && source ~/.bashrc",
     "postAttachCommand": {
-        "server": "source ~/.bashrc && streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
+        "server": "bash -ic 'streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false'"
     },
     "portsAttributes": {
         "8501": {
