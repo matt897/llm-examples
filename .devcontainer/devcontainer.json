@@ -1,5 +1,3 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/python-3
 {
     "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
     "customizations": {
@@ -22,8 +20,8 @@
         8501
     ],
     // Use 'postCreateCommand' to run commands after the container is created.
-    // Install app dependencies.
-    "postCreateCommand": "pip3 install --user -r requirements.txt",
+    // Install app dependencies and ensure user packages are in PATH
+    "postCreateCommand": "pip3 install --user -r requirements.txt && export PATH=/home/vscode/.local/bin:$PATH",
     // Use 'postAttachCommand' to run commands after a tool has attached to the container.
     // Start the app.
     "postAttachCommand": {
