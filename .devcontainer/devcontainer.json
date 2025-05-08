@@ -25,7 +25,7 @@
     // Use 'postAttachCommand' to run commands after a tool has attached to the container.
     // Start the app.
     "postAttachCommand": {
-        "server": "streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
+        "server": "source ~/.bashrc && streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
     },
     "portsAttributes": {
         "8501": {
