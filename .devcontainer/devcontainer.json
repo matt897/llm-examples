@@ -2,25 +2,23 @@
     "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
     "customizations": {
         "codespaces": {
-          "openFiles": [
-            "README.md",
-            "Chatbot.py"
-          ]
+            "openFiles": [
+                "README.md",
+                "Chatbot.py"
+            ]
         },
         "vscode": {
-          "settings": {},
-          "extensions": [
-            "ms-python.python",
-            "ms-python.vscode-pylance"
-          ]
+            "settings": {},
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance"
+            ]
         }
-      },
-    "forwardPorts": [
-        8501
-    ],
-    "postCreateCommand": "python3 -m pip install --upgrade pip && python3 -m pip install -r requirements.txt && export PATH=/home/vscode/.local/bin:$PATH",
+    },
+    "forwardPorts": [8501],
+    "postCreateCommand": "/bin/bash -c 'python3 -m pip install --upgrade pip && python3 -m pip install -r requirements.txt && echo \"export PATH=/home/vscode/.local/bin:$PATH\" >> /home/vscode/.bashrc'",
     "postAttachCommand": {
-        "server": "export PATH=/home/vscode/.local/bin:$PATH && streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
+        "server": "/bin/bash -c 'source /home/vscode/.bashrc && streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false'"
     },
     "portsAttributes": {
         "8501": {
