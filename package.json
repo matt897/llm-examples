@@ -4,6 +4,6 @@
   "private": true,
   "description": "Streamlit LLM Examples App",
   "scripts": {
-    "start": "python3 -m streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
+    "start": "echo 'Please use the built-in terminal to run: python3 -m streamlit run Chatbot.py'"
   }
 }
