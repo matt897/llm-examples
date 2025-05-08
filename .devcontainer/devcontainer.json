@@ -16,9 +16,9 @@
         }
     },
     "forwardPorts": [8501],
-    "postCreateCommand": "python3 -m pip install --upgrade pip && pip install -r requirements.txt",
+    "postCreateCommand": "/bin/bash -c 'python3 -m ensurepip --upgrade && python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel && python3 -m pip install --no-cache-dir -r requirements.txt && echo \"export PATH=/home/vscode/.local/bin:$PATH\" >> ~/.bashrc && source ~/.bashrc'",
     "postAttachCommand": {
-        "server": "streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
+        "server": "/bin/bash -c 'source ~/.bashrc && streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false'"
     },
     "portsAttributes": {
         "8501": {
