@@ -21,11 +21,11 @@
     ],
     // Use 'postCreateCommand' to run commands after the container is created.
     // Install app dependencies and ensure user packages are in PATH
-    "postCreateCommand": "python3 -m pip install --user -r requirements.txt && echo 'export PATH=/home/vscode/.local/bin:$PATH' >> ~/.bashrc",
+    "postCreateCommand": "python3 -m pip install --user -r requirements.txt && export PATH=/home/vscode/.local/bin:$PATH && source ~/.bashrc",
     // Use 'postAttachCommand' to run commands after a tool has attached to the container.
     // Start the app.
     "postAttachCommand": {
-        "server": "bash -ic 'streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false'"
+        "server": "streamlit run Chatbot.py --server.enableCORS false --server.enableXsrfProtection false"
     },
     "portsAttributes": {
         "8501": {
